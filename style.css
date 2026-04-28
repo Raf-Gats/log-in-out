@@ -1,0 +1,216 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 700px;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* FORM CONTAINERS */
+.form-container {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    
+
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    -webkit-transition: -webkit-transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* LEFT SIDE (SIGN IN) */
+.sign-in {
+    left: 0;
+    z-index: 2;
+    background: white;
+}
+
+/* RIGHT SIDE (SIGN UP START POSITION) */
+.sign-up {
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    background: white;
+}
+
+/* ACTIVE STATE: MOVE SIGN IN OUT */
+.container.active .sign-in {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* ACTIVE STATE: SHOW SIGN UP */
+.container.active .sign-up {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* WELCOME PANEL */
+.welcome {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: orange;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    
+    overflow: hidden;
+
+    transition: transform 0.6s ease-in-out;
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+}
+
+/* MOVE WELCOME PANEL */
+.container.active .welcome {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+/* FORM LAYOUT */
+.form-container form {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* INPUT FIELDS */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    background: #fff;
+}
+
+/* INPUT FOCUS EFFECT */
+input:focus {
+    border-color: orange;
+    box-shadow: 0 0 0 3px rgba(255,165,0,0.2);
+}
+
+/* BUTTON STYLE */
+button {
+    display: flex;
+    margin: 0 auto;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: orange;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+}
+
+/* BUTTON HOVER */
+button:hover {
+    background: #e69500;
+    transform: translateY(-2px);
+}
+
+/* BUTTON ACTIVE CLICK */
+button:active {
+    transform: scale(0.98);
+}
+
+/* HEADINGS */
+h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+}
+
+.switch-text {
+    font-size: 13px;
+    color: #000; /* BLACK TEXT */
+    margin-top: 10px;
+}
+
+/* clickable part */
+.switch-text span {
+    color: #000; /* BLACK ALSO */
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+/* hover effect */
+.switch-text span:hover {
+    opacity: 0.6;
+}
+
+input.error {
+    border: 2px solid red;
+    background: #ffe5e5;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+}
+
+.password-box {
+    position: relative;
+    width: 100%;
+}
+
+/* keep input clean */
+.password-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 35px;
+}
+
+/* eye icon style */
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.eye:hover {
+    opacity: 1;
+}
